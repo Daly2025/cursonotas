@@ -82,5 +82,19 @@ def delete_grade():
 
     return redirect(url_for('subject_detail', subject_id=subject_id))
 
+@app.route('/delete_student', methods=['POST'])
+def delete_student():
+    # Recoger el ID del alumno desde el formulario
+    student_id = request.form['student_id']
+    
+    # Eliminar al alumno de la base de datos
+    db.execute("""
+        DELETE FROM students
+        WHERE student_id = %s
+    """, (student_id,))
+
+    # Redirigir a la lista de alumnos después de eliminar
+    return redirect(url_for('students'))
+
 if __name__ == '__main__':
     app.run(debug=True)
