@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestión Académica</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b9b9eb;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #444;
+            text-align: center;
+            margin: 20px;
+        }
+
+        /* Form Styles */
+        form {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        form label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        form input[type="text"],
+        form input[type="email"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* List Styles */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        ul li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        ul li:hover {
+            background: #f0f8ff;
+        }
+
+        /* Button Container Styles */
+        .button-container {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .button-container a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .button-container a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Link Styles */
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gestión Académica</h1>
+
+    <!-- Formulario para Insertar Alumno -->
+    <form method="POST" action="{{ url_for('add_student') }}">
+        <h2>Insertar Alumno</h2>
+        <label>Nombre:</label>
+        <input type="text" name="name" required>
+        <label>DNI:</label>
+        <input type="text" name="dni" required>
+        <label>Teléfono:</label>
+        <input type="text" name="phone">
+        <label>Email:</label>
+        <input type="email" name="email" required>
+        <label>Dirección:</label>
+        <input type="text" name="address">
+        <button type="submit">Añadir Alumno</button>
+    </form>
+
+    <!-- Botones en un recuadro más bonito -->
+    <div class="button-container">
+        <a href="{{ url_for('students') }}">Ver Alumnos</a>
+        <a href="{{ url_for('home') }}">Volver al inicio</a>
+    </div>
+
+    <!-- Lista de Asignaturas -->
+    <h2>Asignaturas Disponibles</h2>
+    <ul>
+        {% for subject in subjects %}
+            <li>
+                <a href="{{ url_for('subject_detail', subject_id=subject.subject_id) }}">
+                    {{ subject.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+
+
+

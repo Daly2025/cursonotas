@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alumnos</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #444;
+            margin: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px auto;
+            width: 50%;
+        }
+
+        ul li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        ul li:hover {
+            background: #f0f8ff;
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px 10px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Alumnos</h1>
+    <ul>
+        {% for student in students %}
+            <li>
+                {{ student.name }} - {{ student.email }}<br>
+                <strong>Asignaturas y Notas:</strong> {{ student.subjects_grades }}
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="button-container">
+        <a href="{{ url_for('add_student') }}">Añadir nuevo alumno</a>
+        <a href="{{ url_for('home') }}">Volver al inicio</a>
+    </div>
+</body>
+</html>
