@@ -32,7 +32,7 @@ CREATE TABLE `person_subjects` (
   KEY `subject_id` (`subject_id`),
   CONSTRAINT `fk_person_subject_person` FOREIGN KEY (`person_id`) REFERENCES `students` (`student_id`),
   CONSTRAINT `fk_person_subject_subject` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`subject_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `person_subjects` (
 
 LOCK TABLES `person_subjects` WRITE;
 /*!40000 ALTER TABLE `person_subjects` DISABLE KEYS */;
-INSERT INTO `person_subjects` VALUES (1,1,1,'A'),(2,2,1,'B'),(3,3,2,'A'),(4,4,3,'C'),(5,5,4,'B');
+INSERT INTO `person_subjects` VALUES (6,6,1,'6.5'),(10,1,3,'10'),(11,6,3,'10'),(12,2,3,'10'),(13,3,3,'10'),(15,5,3,'10'),(17,7,4,'10'),(18,1,6,'5');
 /*!40000 ALTER TABLE `person_subjects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +62,7 @@ CREATE TABLE `students` (
   PRIMARY KEY (`student_id`),
   UNIQUE KEY `dni` (`dni`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +71,7 @@ CREATE TABLE `students` (
 
 LOCK TABLES `students` WRITE;
 /*!40000 ALTER TABLE `students` DISABLE KEYS */;
-INSERT INTO `students` VALUES (1,'Alice Johnson','12345678A','600123456','alice.johnson@mail.com','123 Main Street'),(2,'Bob Smith','23456789B','600234567','bob.smith@mail.com','456 Oak Avenue'),(3,'Carol White','34567890C','600345678','carol.white@mail.com','789 Pine Lane'),(4,'David Brown','45678901D','600456789','david.brown@mail.com','321 Elm Street'),(5,'Eve Wilson','56789012E','600567890','eve.wilson@mail.com','654 Maple Drive');
+INSERT INTO `students` VALUES (1,'Alice Johnson','12345678A','600123456','alice.johnson@mail.com','123 Main Street'),(2,'Bob Smith','23456789B','600234567','bob.smith@mail.com','456 Oak Avenue'),(3,'Carol White','34567890C','600345678','carol.white@mail.com','789 Pine Lane'),(4,'David Brown','45678901D','600456789','david.brown@mail.com','321 Elm Street'),(5,'Eve Wilson','56789012E','600567890','eve.wilson@mail.com','654 Maple Drive'),(6,'ana lopez perez','30229877l','658487741','lala@lalalal','Rua toxal 56'),(7,'Pepa ','36168585t','988411789','pepa@peita.com','torrecedeira 23 vigo'),(9,'ana','85857545y','986252540','ana@gmail.com','calle Urzaiz 72 Vigo');
 /*!40000 ALTER TABLE `students` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +89,7 @@ CREATE TABLE `subjects` (
   `description` text DEFAULT NULL,
   PRIMARY KEY (`subject_id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ CREATE TABLE `subjects` (
 
 LOCK TABLES `subjects` WRITE;
 /*!40000 ALTER TABLE `subjects` DISABLE KEYS */;
-INSERT INTO `subjects` VALUES (1,'Mathematics',6,'Study of numbers, shapes, and patterns'),(2,'Physics',4,'Study of matter, energy, and their interactions'),(3,'Chemistry',4,'Study of substances and their properties'),(4,'History',3,'Study of past events'),(5,'Literature',3,'Study of written works');
+INSERT INTO `subjects` VALUES (1,'Matematicas',6,'Study of numbers, shapes, and patterns'),(2,'Fisica',4,'Study of matter, energy, and their interactions'),(3,'Quimica',4,'Study of substances and their properties'),(4,'Historia',3,'Study of past events'),(5,'Literatura',3,'Study of written works'),(6,'Filosofía',0,NULL);
 /*!40000 ALTER TABLE `subjects` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -111,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-20 15:52:46
+-- Dump completed on 2025-03-20 17:39:15
