@@ -6,7 +6,7 @@
         /* General Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #acaceb;
             color: #333;
             margin: 0;
             padding: 0;
@@ -14,6 +14,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            flex-direction: column; /* Asegura que todo esté en columna */
         }
 
         h1 {
@@ -30,7 +31,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 400px;
-            margin: auto;
         }
 
         form label {
@@ -65,10 +65,15 @@
         }
 
         /* Link Styles */
-        a {
-            display: block;
+        .button-container {
             text-align: center;
-            margin-top: 15px;
+            margin-top: 20px;
+        }
+
+        a {
+            text-align: center;
+            display: inline-block;
+            margin-top: 10px;
             color: #007BFF;
             text-decoration: none;
             font-size: 14px;
@@ -95,6 +100,10 @@
         <input type="text" name="address"><br>
         <button type="submit">Añadir</button>
     </form>
-    <a href="{{ url_for('students') }}">Volver</a>
+    <!-- Botón de volver perfectamente alineado debajo -->
+    <div class="button-container">
+        <a href="{{ url_for('students') }}">Volver</a>
+    </div>
 </body>
 </html>
+
