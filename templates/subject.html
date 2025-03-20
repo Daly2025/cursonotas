@@ -62,6 +62,24 @@
         button:hover {
             background-color: #0056b3;
         }
+
+        .back-button {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 10px 15px;
+            text-align: center;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -89,6 +107,8 @@
         {% endfor %}
     </ul>
 
-    <a href="{{ url_for('home') }}">Volver al inicio</a>
+    <!-- Botón "Volver al inicio" con estilo azul -->
+    <a href="{{ url_for('home') }}" class="back-button">Volver al inicio</a>
 </body>
 </html>
+
